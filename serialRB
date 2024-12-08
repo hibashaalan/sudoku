@@ -1,0 +1,77 @@
+def is_valid(board, row, col, value):
+    """
+    Check if placing 'value' in board[row][col] is valid.
+    """
+    # Check the row
+    if value in board[row]:
+        return False
+
+    # Check the column
+    if value in [board[i][col] for i in range(9)]:
+        return False
+
+    # Check the 3x3 subgrid
+    start_row, start_col = 3 * (row // 3), 3 * (col // 3)
+    for i in range(start_row, start_row + 3):
+        for j in range(start_col, start_col + 3):
+            if board[i][j] == value:
+                return False
+
+    return True
+
+
+def find_empty_space(board):
+    """
+    Find the next empty space on the board.
+    Returns (row, col) of the empty space, or None if the board is full.
+    """
+    for row in range(9):
+        for col in range(9):
+            if board[row][col] == 0:  # Assuming 0 represents an empty cell
+                return row, col
+    return None
+
+
+def solve_sudoku(board):
+    """
+    Solve the Sudoku board using backtracking.
+    """
+    empty_space = find_empty_space(board)
+    if not empty_space:
+        return True  # No empty spaces left, the board is solved
+
+    row, col = empty_space
+
+    for value in range(1, 10):
+        if is_valid(board, row, col, value):
+            # Place the value
+            board[row][col] = value
+
+            # Recursively try to solve the rest of the board
+            if solve_sudoku(board):
+                return True
+
+            # Undo the choice (backtrack)
+            board[row][col] = 0
+
+    return False  # Trigger backtracking
+
+
+# Example Sudoku board (0 represents empty spaces)
+sudoku_board = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+]
+
+if solve_sudoku(sudoku_board):
+    for row in sudoku_board:
+        print(row)
+else:
+    print("No solution exists.")
