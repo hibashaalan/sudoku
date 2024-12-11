@@ -12,6 +12,7 @@ libraries used: numpy, ThreadPoolExecutor, cupy
 ---------------------------------------------------------------------------
 # **How to run code?**
 Recommended to use Google Colab
+
 Make sure to run the board initialization code, this will ensure our solvers know what to solve
 
 make sure you have installed 
@@ -22,6 +23,15 @@ for 3 and 5 (GPU Utilized algorithms):
 
 install cupy: 
 **!pip install cupy-cuda11x**
+
+--------------------------------------------------------------------------
+file info:
+
+SudokuSolvingOptimization: Colab Notebook containing all algorithms 
+
+
+
+
 
 --------------------------------------------------------------------------
 more info about board:
