@@ -1,5 +1,5 @@
-# sudoku
-# **README**
+# Accelerating Sudoku Solving Algorithms through Parallel Programming
+**README**
 we have 5 algorithms:
 1. serial recursive backtracking algorithm
 2. parallel recursive backtracking (cpu)
