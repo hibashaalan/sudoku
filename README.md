@@ -28,7 +28,7 @@ install cupy:
 file info:
 
 SudokuSolvingOptimization: Colab Notebook containing all algorithms 
-Sudoku Matplots: Colab Containing all matplots used for algorithms and in paper 
+Sudoku_Matplots: Colab Containing all matplots used for algorithms and in paper 
 
 --------------------------------------------------------------------------
 more info about board:
