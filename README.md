@@ -31,6 +31,8 @@ SudokuSolvingOptimization: Colab Notebook containing all algorithms
 
 Sudoku_Matplots: Colab Containing all matplots used for algorithms and in paper 
 
+Sudoku_on_GPU: Colab Containing Execution time of GPU Algorithms
+
 --------------------------------------------------------------------------
 more info about board:
 
